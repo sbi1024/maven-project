@@ -1,7 +1,6 @@
-package ch01;
+package ch02;
 
-import ch01.dao.BookDao;
-import ch01.dto.BookDto;
+import ch02.dao.BookDao;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,7 +11,7 @@ import java.io.Reader;
 public class Test {
     public static void main(String[] args) throws Exception {
         //mybatis 설정 파일을 읽고 정보는 저장하는 reader 객체 생성
-        Reader reader = Resources.getResourceAsReader("config/mybatis-config.xml");
+        Reader reader = Resources.getResourceAsReader("config/mybatis-config-2.xml");
         // SqlSessionFactory 를 Builder 패턴으로 생성
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         // SqlSession 객체를 Factory 패턴으로 생성

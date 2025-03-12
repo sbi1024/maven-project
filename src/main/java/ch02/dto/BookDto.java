@@ -1,4 +1,4 @@
-package ch01.dto;
+package ch02.dto;
 
 public class BookDto {
     private int bookId;

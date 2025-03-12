@@ -4,7 +4,42 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ch01.dao.BookDao">
-    <select id="listBook">
-
+    <select id="listBook" resultType="ch01.dto.BookDto">
+        select mb.bookid    as bookId
+             , mb.bookname  as bookName
+             , mb.publisher as publisher
+             , mb.price     as price
+        from madangdb.book mb
     </select>
+
+    <select id="detailBook" resultType="ch01.dto.BookDto">
+        select mb.bookid    as bookId
+             , mb.bookname  as bookName
+             , mb.publisher as publisher
+             , mb.price     as price
+        from madangdb.book mb
+        where 1 = 1
+          and mb.bookid = #{bookId}
+    </select>
+
+    <insert id="insertBook" parameterType="ch01.dto.BookDto">
+        insert into madangdb.book (bookId, bookName, publisher, price)
+        values (#{bookId}, #{bookName}, #{publisher}, #{price})
+    </insert>
+
+    <update id="updateBook" parameterType="ch01.dto.BookDto">
+        update madangdb.book mb
+        set mb.bookname  = #{bookName},
+            mb.publisher = #{publisher},
+            mb.price     = #{price}
+        where 1 = 1
+          and mb.bookid = #{bookId}
+    </update>
+    
+    <delete id="deleteBook" parameterType="int">
+        delete from madangdb.book mb
+        where 1 = 1
+        and mb.bookid = #{bookId}
+    </delete>
+
 </mapper>

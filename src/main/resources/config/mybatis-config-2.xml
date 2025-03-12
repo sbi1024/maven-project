@@ -15,6 +15,9 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mapper/book-mapper.xml"/>
+<!--        <mapper resource="mapper/book-mapper.xml"/>-->
+        <mapper class="ch02.dao.BookDao">
+
+        </mapper>
     </mappers>
 </configuration>
